@@ -6,8 +6,12 @@
 </p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <strong>Author(s):</strong>
+  <ul>
+    <% @book.author.each do |author| %>
+      <li><%= author %>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
