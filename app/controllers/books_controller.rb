@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /books
   # GET /books.json
@@ -10,6 +11,10 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @book }
+    end
   end
 
   # GET /books/new
